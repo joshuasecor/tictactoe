@@ -5,20 +5,43 @@
     <title></title>
     <style>
     	#header {
-
+    		font-size: 40px;
+    	}
+    	#gameArea {
+    		width: 800px;
+    		margin: 0 auto;
+    	}
+    	#scoreBoard {
+    		border: double 3px black;
+   			width: 250px;
+   			height: 450px;
+   			padding: 5px;
+   			float: left;
+   			margin-right: 50px;
+    	}
+    	#scoreBoardHeader {
+    		font-size: 28px;
+    	}
+    	.playerNames {
+    		font-size: 18px;
+    		padding: 5px;
+    	}
+    	.scores {
+    		font-size: 80px;
+    	}
+    	button {
+    		width: 150px;
+    		height: 75px;
+    		border-radius: 15px;
+    		font-size: 24px;
     	}
     	#subheader {
-
-    	}
-    	.center {
-    		text-align: center;
-    		margin-left: auto;
-    		margin-right: auto;
+    		font-size: 32px;
     	}
     	#board {
     		height: 450px;
     		width: 450px;
-    		overflow: auto;
+    		overflow: hidden;
     	}
     	.squares {
     		height: 150px;
@@ -27,30 +50,61 @@
     		margin: -3px;
     		border: 3px solid black;
 		}
+		.center {
+    		text-align: center;
+    		margin: 25 auto;
+    	}
     </style>
 </head>
 <body>
 
-	<h1 id="header" class="center">
+	<div id="header" class="center">
 		Let's play Tic Tac Toe!
-	</h1>
-
-	<h2 id="subheader" class="center">
-		Player 1's turn...
-	</h2>
-
-	<div id="board" class="center">
-		<div id="square1" class="squares">1</div>
-		<div id="square2" class="squares">2</div>
-		<div id="square3" class="squares">3</div>
-		<div id="square4" class="squares">4</div>
-		<div id="square5" class="squares">5</div>
-		<div id="square6" class="squares">6</div>
-		<div id="square7" class="squares">7</div>
-		<div id="square8" class="squares">8</div>
-		<div id="square9" class="squares">9</div>
 	</div>
-		
+	<div id="subheader" class="center">
+		Player 1's turn...
+	</div>
+	<div id="gameArea" class="center">
+		<div id="scoreBoard">
+			<br>
+			<div id="scoreBoardHeader">
+				Scoreboard
+			</div>
+			<br>
+			<div class="playerNames">
+				Player 1
+			</div>
+			<br>
+			<div class="scores">
+				0
+			</div>
+			<br>
+			<div class="playerNames">
+				Player 2
+			</div>
+			<br>
+			<div class="scores">
+				0
+			</div>
+			<br>
+			<button type="button">
+				Play Again
+			</button>
+		</div>
+		<br>
+		<div id="board">
+			<div id="square1" class="squares">1</div>
+			<div id="square2" class="squares">2</div>
+			<div id="square3" class="squares">3</div>
+			<div id="square4" class="squares">4</div>
+			<div id="square5" class="squares">5</div>
+			<div id="square6" class="squares">6</div>
+			<div id="square7" class="squares">7</div>
+			<div id="square8" class="squares">8</div>
+			<div id="square9" class="squares">9</div>
+		</div>
+	</div>
+
 	<script>
 		// Keeps track of turns //
 		var turnCounter = 1;
@@ -70,10 +124,8 @@
 		}
 
 		function playAgain() {
-			
+			document.getElementById("button").style.visibility = "visible";
 		}
-
-
 	</script>
 
 </body>
