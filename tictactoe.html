@@ -1,32 +1,79 @@
+<!-- Wireframes: https://drive.draw.io/#G0B_bI6ffSn-DVQTE1U2RXZlVPQUk -->
+
 <html>
 <head>
     <title></title>
     <style>
-    .leftSide {border-left: 5px solid black;}
- 	.topSide {border-top: 5px solid black;}
- 	#board {width: 600px;}
- 	div > div {
- 		width: 190px;
- 		height: 190px;
- 		display: inline-block;
- 	}
+    	#header {
+
+    	}
+    	#subheader {
+
+    	}
+    	.center {
+    		text-align: center;
+    		margin-left: auto;
+    		margin-right: auto;
+    	}
+    	#board {
+    		height: 450px;
+    		width: 450px;
+    		overflow: auto;
+    	}
+    	.squares {
+    		height: 150px;
+    		width: 150px;
+    		float: left;
+    		margin: -3px;
+    		border: 3px solid black;
+		}
     </style>
 </head>
 <body>
 
-	<div id="board">
-		<div></div>
-		<div class="leftSide"></div>
-		<div class="leftSide"></div>
-		<div class="topSide"></div>
-		<div class="leftSide" class="topSide"></div>
-		<div class="leftSide" class="topSide"></div>
-		<div class="topSide"></div>
-		<div class="leftSide" class="topSide"></div>
-		<div class="leftSide" class="topSide"></div>
-	</div>
+	<h1 id="header" class="center">
+		Let's play Tic Tac Toe!
+	</h1>
 
+	<h2 id="subheader" class="center">
+		Player 1's turn...
+	</h2>
+
+	<div id="board" class="center">
+		<div id="square1" class="squares">1</div>
+		<div id="square2" class="squares">2</div>
+		<div id="square3" class="squares">3</div>
+		<div id="square4" class="squares">4</div>
+		<div id="square5" class="squares">5</div>
+		<div id="square6" class="squares">6</div>
+		<div id="square7" class="squares">7</div>
+		<div id="square8" class="squares">8</div>
+		<div id="square9" class="squares">9</div>
+	</div>
+		
 	<script>
+		// Keeps track of turns //
+		var turnCounter = 1;
+
+		// Adds 1 to turnCounter, ends game after 9th turn, run AFTER checking for winner //
+		function nextTurn() {
+			turnCounter++;
+			if(turnCounter > 9) {
+				tieGame();
+			}
+		}
+
+		// Function to end game, change <h2> text, reveal "Play Again" button //
+		function tieGame() {
+			document.getElementById("subheader").innerHTML = "It's a tie!";
+			playAgain();
+		}
+
+		function playAgain() {
+			
+		}
+
+
 	</script>
 
 </body>
