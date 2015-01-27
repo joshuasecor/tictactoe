@@ -2,72 +2,19 @@
 
 <html>
 <head>
-    <title></title>
-    <style>
-    	#header {
-    		font-size: 40px;
-    	}
-    	#gameArea {
-    		width: 900px;
-    		margin: 0 auto;
-    	}
-    	#scoreBoard {
-    		border: double 3px black;
-   			width: 250px;
-   			height: 450px;
-   			padding: 5px;
-   			float: left;
-   			margin-right: 50px;
-   			margin-left: 50px;
-
-    	}
-    	#scoreBoardHeader {
-    		font-size: 28px;
-    	}
-    	.playerNames {
-    		font-size: 18px;
-    		padding: 5px;
-    	}
-    	.scores {
-    		font-size: 80px;
-    	}
-    	button {
-    		width: 150px;
-    		height: 75px;
-    		border-radius: 15px;
-    		font-size: 24px;
-    		padding-bottom: 5px;
-    	}
-    	#subheader {
-    		font-size: 32px;
-    	}
-    	#board {
-    		height: 450px;
-    		width: 450px;
-    		overflow: hidden;
-    	}
-    	.squares {
-    		height: 150px;
-    		width: 150px;
-    		float: left;
-    		margin: -3px;
-    		border: 3px solid black;	
-    		font-size: 80px;
-		}
-		.squares:hover {
-			border: dotted black;
-		}
-		.center {
-    		text-align: center;
-    		margin: 25 auto;
-    	}
-    </style>
+	<link rel="stylesheet" type="text/css" href="tictactoe.css">
+	<script src="tictactoe.js" async></script>
+    <title>Tic Tac Toe</title>
 </head>
 
 <body onload="disableButton()">
-
 	<div id="header" class="center">
-		Let's play Tic Tac Toe!
+		<div id="header1">
+			Let's play
+		</div>
+		<div id="header2">
+			Tic Tac Toe
+		</div>
 	</div>
 	<div id="subheader" class="center">
 		Player 1's turn...
@@ -82,14 +29,14 @@
 			<div class="playerNames">
 				Player 1
 			</div>
-			<div class="scores">
+			<div id="player1" class="scores">
 				0
 			</div>
 			<br>
 			<div class="playerNames">
 				Player 2
 			</div>
-			<div class="scores">
+			<div id="player2" class="scores">
 				0
 			</div>
 			<br>
@@ -110,78 +57,6 @@
 			<div id="square9" class="squares"></div>
 		</div>
 	</div>
-
-	<script>
-
-		// Keeps track of turns //
-		var turnCounter = 1;
-
-		// Adds 1 to turnCounter, ends game after 9th turn, run AFTER checking for winner //
-		function nextTurn() {
-			winLogic();
-			turnCounter++;
-			if (turnCounter %2 == 0) {
-				document.getElementById("subheader").innerHTML = "Player 2's turn...";
-			}
-			else {
-				document.getElementById("subheader").innerHTML = "Player 1's turn...";
-			};
-			if (turnCounter > 9) {
-				tieGame();
-			}
-		}
-
-		// Function to end game, change <h2> text, reveal "Play Again" button //
-		function tieGame() {
-			document.getElementById("subheader").innerHTML = "It's a tie!";
-			enableButton();
-		}
-
-		// Disable to "Play Again button" - this function is run on page load (see opening <body> tag) //
-		function disableButton() {
-			document.getElementById("replay").disabled = true;
-		}
-
-		// Enable the "Play Again" button //
-		function enableButton() {
-			document.getElementById("replay").disabled = false;
-		}
-
-		// Restarts turn counter, clears board,  //
-		function playAgain() {
-			turnCounter = 1;
-			for (var i = 0; i < squares.length; i++) {
-			squares[i].innerHTML = ""};
-			disableButton();
-			document.getElementById("subheader").innerHTML = "Player 1's turn...";
-		}
-
-		// When X clicks - only for square 1 //
-		//document.getElementById("square1").addEventListener("click", addX);
-
-		var squares = document.getElementsByClassName("squares");
-
-		for (var i = 0; i < squares.length; i++) {
-			squares[i].addEventListener("click", function(){
-				if (this.innerHTML == 0) {
-					if (turnCounter %2 == 0) {
-						this.innerHTML = "O";
-					}
-					else {
-						this.innerHTML = "X";
-					};
-					nextTurn();
-				}
-			})
-		}
-
-		// Creat win logic here!! //
-		function winLogic() {
-
-		}
-
-
-	</script>
 
 </body>
 </html>
